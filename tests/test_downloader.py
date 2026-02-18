@@ -112,10 +112,10 @@ def test_ftp_download(tmp_path, ftpserver):
 
 
 def test_progress_bar():
-    bar = progress_bar(10, False, 5)
+    bar = progress_bar(10, 5, disable=False)
     assert isinstance(bar, tqdm)
 
-    nobar = progress_bar(10, True, 5)
+    nobar = progress_bar(10, 5, disable=True)
     assert isinstance(nobar, NoBar)
 
 if __name__ == "__main__":
