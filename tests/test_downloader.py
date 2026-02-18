@@ -138,3 +138,14 @@ class TestPartHTTPDownloader:
 if __name__ == "__main__":
     logging.basicConfig(level=logging.DEBUG)
     # test_order()
+
+
+def test_progress_bar():
+    from tqdm.std import tqdm
+    from multiurl.base import progress_bar, NoBar
+
+    bar = progress_bar(10, False, 5)
+    assert isinstance(bar, tqdm)
+
+    nobar = progress_bar(10, True, 5)
+    assert isinstance(nobar, NoBar)
